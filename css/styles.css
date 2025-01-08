@@ -1,3 +1,4 @@
+/* Reset general */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -11,43 +12,53 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  display: block;
 }
 
-/*--*/
+body {
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Encabezado */
 .header-top {
   position: fixed;
   display: flex;
   width: 100%;
   background-color: #60fbbf;
+  z-index: 100;
 }
 
 .pagination {
@@ -64,18 +75,60 @@ table {
 
 .boton {
   font-size: 16px;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 15px;
   color: white;
   cursor: pointer;
   background-color: #03b1c8;
+  transition: background-color 0.3s ease;
 }
 
-ul {  
-  padding-top: 100px;
-  list-style: none;
+.boton:hover {
+  background-color: #028a9c;
 }
 
+/* Contenedor de personajes con Flexbox */
+.character-container {
+  display: flex;
+  flex-wrap: wrap; /* Esto permite que las tarjetas se acomoden en múltiples filas */
+  justify-content: space-evenly; /* Distribuye las tarjetas de forma uniforme */
+  padding: 120px 20px 20px; /* Padding superior para que las tarjetas no se tapen con el header */
+  gap: 20px; /* Espaciado entre las tarjetas */
+  max-width: 100%;
+  margin: 0 auto; /* Asegura que el contenedor se mantenga centrado */
+}
 
+/* Tarjetas de personajes */
+.character-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px; /* Ancho fijo de la tarjeta */
+  max-width: 100%; /* Asegura que las tarjetas no se expandan más allá de su tamaño */
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.character-card img {
+  width: 100%;
+  height: auto;
+}
+
+.character-card h2 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.character-card p {
+  font-size: 14px;
+  margin: 5px 0 15px;
+  color: #666;
+}
+
+.character-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
